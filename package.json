@@ -16,7 +16,8 @@
     "commit": "git-cz",
     "publish": "npm run build && npm publish dist",
     "dumpdev": "ENV=dev webpack --progress --colors --config webpack.config.dist.js -d",
-    "dumpprod": "ENV=prod webpack --progress --colors --config webpack.config.dist.js -p"
+    "dumpprod": "ENV=prod webpack --progress --colors --config webpack.config.dist.js -p",
+    "changelog": "node_modules/.bin/conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md && git commit -m 'docs(changelog): add new log'"
   },
   "repository": {
     "type": "git",
