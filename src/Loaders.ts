@@ -1,4 +1,5 @@
-import { Http, HttpModule } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+
 import { stripTrailingSlash } from './utils';
 
 export abstract class WpApiLoader {
@@ -8,9 +9,8 @@ export abstract class WpApiLoader {
 export class WpApiStaticLoader implements WpApiLoader {
   completeUrl: string;
   constructor(
-    private http: Http,
-    private baseUrl: string = 'http://changeYourDomainHere.com/wp-json',
-    private namespace: string = '/wp/v2'
+    private readonly baseUrl: string = 'http://changeYourDomainHere.com/wp-json',
+    private readonly namespace: string = '/wp/v2'
   ) {
     this.completeUrl = `${stripTrailingSlash(this.baseUrl)}${this.namespace}`;
   }
